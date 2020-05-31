@@ -103,13 +103,15 @@ namespace Lab.Feature
   testRunner.Given("I open \"http://localhost:5000\" url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
-  testRunner.When("I type user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.When("I type \"user\" name, \"user\" password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
   testRunner.And("I open All Product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
-  testRunner.And("I Create new Product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I Create new Product \"Fortune cookie\" ProductName, \"Confections\" Category, \"Speci" +
+                        "alty Biscuits, Ltd.\" Supplier, \"3,000\" UnitPrice, \"10 boxes x 15 pieces\" Quantit" +
+                        "yPerUnit, \"1\" UnitsInStock, \"3\" UnitsOnOrder, \"0\" ReorderLevel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
   testRunner.Then("check the product was created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
