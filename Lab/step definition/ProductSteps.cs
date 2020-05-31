@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using TechTalk.SpecFlow;
+using OpenQA.Selenium.Support.UI;
 
 namespace Lab.step_definition
 {
@@ -24,10 +25,10 @@ namespace Lab.step_definition
             driver.Url = url;
         }
 
-        [When(@"I type user")]
-        public void WhenIType()
+        [When(@"I type ""(.*)"" name, ""(.*)"" password")]
+        public void WhenIType(string name, string password)
         {
-            new Login(driver).Login_(new UserName_Password("user", "user"));
+            new Login(driver).Login_(new UserName_Password(name, password));
         }
 
         [When(@"I open All Product")]
@@ -36,18 +37,17 @@ namespace Lab.step_definition
             new HomePage(driver).AllProducts();
         }
 
-        
-        [When(@"I Create new Product")]
-        public void WhenIClickOnCreateNew()
+        [When(@"I Create new Product ""(.*)"" ProductName, ""(.*)"" Category, ""(.*)"" Supplier, ""(.*)"" UnitPrice, ""(.*)"" QuantityPerUnit, ""(.*)"" UnitsInStock, ""(.*)"" UnitsOnOrder, ""(.*)"" ReorderLevel")]
+        public void WhenIClickOnCreateNew(string ProductName, string Category, string Supplier, string UnitPrice, string QuantityPerUnit, string UnitsInStock, string UnitsOnOrder, string ReorderLevel)
         {
             new MainPage(driver).ClickCreateNew();
-            new ProductEditing(driver).CreateProduct(new Product("Fortune cookie", "Confections", "Specialty Biscuits, Ltd.", "3,000", "10 boxes x 15 pieces", "1", "3", "0"));
+            new ProductEditing(driver).CreateProduct(new Product(ProductName, Category, Supplier, UnitPrice, QuantityPerUnit, UnitsInStock, UnitsOnOrder, ReorderLevel));
         }
 
         [Then(@"check the product was created")]
         public void ThenProductWasCreated()
         {
-            Thread.Sleep(2000);
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             Assert.AreEqual("Fortune cookie", new MainPage(driver).AssertAddProduct(new Product("Fortune cookie", null, null, null, null, null, null, null)));
         }
     }
