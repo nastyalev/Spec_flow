@@ -48,7 +48,7 @@ namespace Lab.step_definition
         public void ThenProductWasCreated(string product)
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            Assert.AreEqual(product, new MainPage(driver).AssertAddProduct(new Product("Fortune cookie", null, null, null, null, null, null, null)));
+            Assert.AreEqual(product, new MainPage(driver).AssertAddProduct(new Product(product, null, null, null, null, null, null, null)));
         }
     }
 }
