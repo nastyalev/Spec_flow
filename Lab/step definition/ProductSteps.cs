@@ -44,11 +44,11 @@ namespace Lab.step_definition
             new ProductEditing(driver).CreateProduct(new Product(ProductName, Category, Supplier, UnitPrice, QuantityPerUnit, UnitsInStock, UnitsOnOrder, ReorderLevel));
         }
 
-        [Then(@"check the product was created")]
-        public void ThenProductWasCreated()
+        [Then(@"check the ""(.*)"" product was created")]
+        public void ThenProductWasCreated(string product)
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            Assert.AreEqual("Fortune cookie", new MainPage(driver).AssertAddProduct(new Product("Fortune cookie", null, null, null, null, null, null, null)));
+            Assert.AreEqual(product, new MainPage(driver).AssertAddProduct(new Product("Fortune cookie", null, null, null, null, null, null, null)));
         }
     }
 }
