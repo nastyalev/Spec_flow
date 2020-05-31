@@ -114,7 +114,7 @@ namespace Lab.Feature
                         "yPerUnit, \"1\" UnitsInStock, \"3\" UnitsOnOrder, \"0\" ReorderLevel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-  testRunner.Then("check the product was created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("check the \"Fortune cookie\" product was created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
